@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | MandiSetu 2.0</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+  <div id="app-nav-header"></div>
+
+  <main class="main-content">
+    <!-- Welcome Header -->
+    <div class="page-header">
+      <div>
+        <h2 class="page-title" id="dash-welcome">Welcome to MandiSetu</h2>
+        <p class="page-subtitle" id="dash-subtitle">Govt. of Maharashtra Market Linkage & Intelligence Hub</p>
+      </div>
+      <div id="dash-quick-actions" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <!-- Injected based on role -->
+      </div>
+    </div>
+
+    <!-- Dynamic Metrics Row -->
+    <div class="grid-cols-4" id="dash-kpis">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#e0f2fe; color:#0369a1;">📈</div>
+        <div class="stat-info">
+          <div class="stat-value" id="kpi-1">₹2,450</div>
+          <div class="stat-label" id="kpi-1-label">Lasalgaon Onion / Qtl</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#dcfce7; color:#15803d;">📦</div>
+        <div class="stat-info">
+          <div class="stat-value" id="kpi-2">18</div>
+          <div class="stat-label" id="kpi-2-label">Active Produce Lots</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#fef3c7; color:#b45309;">🤝</div>
+        <div class="stat-info">
+          <div class="stat-value" id="kpi-3">6</div>
+          <div class="stat-label" id="kpi-3-label">Live Buyer Offers</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#f3e8ff; color:#7e22ce;">🛡️</div>
+        <div class="stat-info">
+          <div class="stat-value" id="kpi-4">94 / 100</div>
+          <div class="stat-label" id="kpi-4-label">Platform Trust Index</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications & Live Alerts Banner -->
+    <div id="notifications-banner" class="alert alert-info" style="display:none; margin-bottom:1.5rem;">
+      <span id="notifications-text">🔔 Loading latest market notices...</span>
+    </div>
+
+    <!-- All 13 Modules Grid -->
+    <div style="margin-bottom:1rem; display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-size:1.2rem; color:var(--primary-dark);">Platform Modules & Capabilities</h3>
+      <span style="font-size:0.85rem; color:var(--text-muted);">13 Interconnected Services</span>
+    </div>
+
+    <div class="grid-cols-3" id="modules-directory">
+      <!-- M1 -->
+      <a href="/modules/module-01/module1.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">👤</span>
+          <span class="badge badge-info">Core M1</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">User & Role Management</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          RBAC, Maharashtra district profile, FPO-farmer aggregation & buyer GST verification.
+        </p>
+      </a>
+
+      <!-- M2 -->
+      <a href="/modules/module-02/module2.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">📈</span>
+          <span class="badge badge-success">ML Engine M2</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Price Discovery & ML Engine</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Agmarknet daily mandi feeds, 7/30-day moving averages, XGBoost/SARIMA 14-day forecasts.
+        </p>
+      </a>
+
+      <!-- M3 -->
+      <a href="/modules/module-03/module3.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">💰</span>
+          <span class="badge badge-farmer">Farmer Tool M3</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Net-Realization Calculator</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Calculates actual pocket income deducting transport, mandi cess, handling & weather spoilage.
+        </p>
+      </a>
+
+      <!-- M4 -->
+      <a href="/modules/module-04/module4.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">📦</span>
+          <span class="badge badge-fpo">Lots M4</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Produce Listing & Lots</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Create crop lots with expected rates, AI quality grade, and FPO bulk aggregation.
+        </p>
+      </a>
+
+      <!-- M5 -->
+      <a href="/modules/module-05/module5.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">🤝</span>
+          <span class="badge badge-buyer">Trading M5</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Matching & Digital Offers</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Automated multi-factor buyer-demand matching, counter-offers, and instant acceptance.
+        </p>
+      </a>
+
+      <!-- M6 -->
+      <a href="/modules/module-06/module6.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">📑</span>
+          <span class="badge badge-info">Fulfillment M6</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Transaction Tracking & Receipts</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Full lifecycle state machine, payment proof recording, immutable audit log & PDF receipts.
+        </p>
+      </a>
+
+      <!-- M7 -->
+      <a href="/modules/module-07/module7.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">⏱️</span>
+          <span class="badge badge-success">Decision AI M7</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Sale-Window Recommendation</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          ML decision engine comparing storage vs selling now to maximize farmer financial realization.
+        </p>
+      </a>
+
+      <!-- M8 -->
+      <a href="/modules/module-08/module8.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">🛡️</span>
+          <span class="badge badge-buyer">Safety M8</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Buyer Verification & Trust</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          0-100 reliability score tracking payment punctuality, dispute record, and mandi licenses.
+        </p>
+      </a>
+
+      <!-- M9 -->
+      <a href="/modules/module-09/module9.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">🚚</span>
+          <span class="badge badge-farmer">Logistics M9</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Logistics & Freight Engine</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Haversine x road-factor distance calculator, vehicle sizing, transporter registry & dispatch.
+        </p>
+      </a>
+
+      <!-- M10 -->
+      <a href="/modules/module-10/module10.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">⚖️</span>
+          <span class="badge badge-warning">Govt M10</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Dispute Resolution & Redressal</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Evidence upload, officer mediation chat, formal resolutions & automatic buyer trust penalties.
+        </p>
+      </a>
+
+      <!-- M11 -->
+      <a href="/modules/module-11/module11.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">🔬</span>
+          <span class="badge badge-success">Computer Vision M11</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">AI Quality Grading</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          MobileNetV2 crop image classification for Onion & Tomato into Grade A, B, or C with confidence.
+        </p>
+      </a>
+
+      <!-- M12 -->
+      <a href="/modules/module-12/module12.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">🌦️</span>
+          <span class="badge badge-farmer">Advisory M12</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Weather Risk Advisory</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Live Open-Meteo weather forecasts, rainfall/humidity spoilage models, and transit advisories.
+        </p>
+      </a>
+
+      <!-- M13 -->
+      <a href="/modules/module-13/module13.html" class="card card-clickable" style="text-decoration:none; color:inherit;">
+        <div class="card-header">
+          <span style="font-size:1.5rem;">🏛️</span>
+          <span class="badge badge-admin">Policy M13</span>
+        </div>
+        <h4 style="margin-bottom:0.35rem;">Admin Analytics Dashboard</h4>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          Statewide agricultural KPIs, district price disparity heatmaps, dispute analytics & CSV exports.
+        </p>
+      </a>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>🌾 MandiSetu 2.0 • Smart India Hackathon SIH26132 • Government of Maharashtra</p>
+    <p style="font-size:0.75rem; margin-top:0.25rem; color:#64748b;">
+      Demonstrating full farmer-to-buyer lifecycle with AI price discovery and accurate net realization.
+    </p>
+  </footer>
+
+  <script type="module">
+    import { renderNav } from "/js/nav.js";
+    import { initI18n } from "/js/i18n.js";
+    import { getCurrentUser, requireAuth } from "/js/auth.js";
+    import { api } from "/js/api.js";
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      if (!requireAuth()) return;
+      await initI18n();
+      renderNav("dashboard");
+
+      const user = getCurrentUser();
+      if (user) {
+        document.getElementById("dash-welcome").textContent = `Welcome, ${user.full_name || user.email}!`;
+        document.getElementById("dash-subtitle").textContent = 
+          `Role: ${user.role} • District: ${user.district || 'Maharashtra'} • MandiSetu Connected`;
+        
+        setupRoleSpecificActions(user.role);
+        loadNotifications();
+      }
+    });
+
+    function setupRoleSpecificActions(role) {
+      const container = document.getElementById("dash-quick-actions");
+      if (role.toLowerCase() === "farmer" || role.toLowerCase() === "fpo") {
+        container.innerHTML = `
+          <a href="/modules/module-04/module4.html" class="btn btn-primary btn-sm">+ List New Produce</a>
+          <a href="/modules/module-03/module3.html" class="btn btn-secondary btn-sm">Calculate Net Realization</a>
+          <a href="/modules/module-07/module7.html" class="btn btn-accent btn-sm">Sale Window AI</a>
+        `;
+      } else if (role.toLowerCase() === "buyer") {
+        container.innerHTML = `
+          <a href="/modules/module-05/module5.html" class="btn btn-primary btn-sm">+ Post Demand</a>
+          <a href="/modules/module-04/module4.html" class="btn btn-secondary btn-sm">Browse Lots</a>
+          <a href="/modules/module-08/module8.html" class="btn btn-accent btn-sm">My Reliability Score</a>
+        `;
+      } else if (role.toLowerCase() === "admin") {
+        container.innerHTML = `
+          <a href="/modules/module-13/module13.html" class="btn btn-primary btn-sm">State Policy Center</a>
+          <a href="/modules/module-10/module10.html" class="btn btn-accent btn-sm">Mediate Disputes</a>
+        `;
+      }
+    }
+
+    async function loadNotifications() {
+      try {
+        const notifs = await api.get("/api/notifications");
+        if (notifs && notifs.length > 0) {
+          const banner = document.getElementById("notifications-banner");
+          const text = document.getElementById("notifications-text");
+          const unread = notifs.filter(n => !n.is_read);
+          if (unread.length > 0) {
+            banner.className = "alert alert-warning";
+            text.innerHTML = `🔔 <strong>${unread[0].title}:</strong> ${unread[0].message} ${unread[0].link ? `<a href="${unread[0].link}" style="margin-left:8px; font-weight:600;">View</a>` : ''}`;
+            banner.style.display = "flex";
+          }
+        }
+      } catch (err) {
+        // Notifications endpoint optional if no notifications yet
+      }
+    }
+  </script>
+</body>
+</html>

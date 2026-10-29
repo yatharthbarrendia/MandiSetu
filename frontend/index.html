@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MandiSetu 2.0 | Govt. of Maharashtra SIH26132</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <style>
+    .hero-section {
+      background: linear-gradient(135deg, #1b5e20 0%, #003300 100%);
+      color: #ffffff;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+      border-bottom: 4px solid var(--accent-saffron);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-saffron);
+      color: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      color: #cbd5e1;
+    }
+    .login-container {
+      max-width: 900px;
+      margin: -2rem auto 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+    @media (max-width: 768px) {
+      .login-container {
+        grid-template-columns: 1fr;
+        margin-top: 1rem;
+      }
+    }
+    .demo-role-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      background: #ffffff;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      margin-bottom: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    .demo-role-btn:hover {
+      border-color: var(--primary-color);
+      background: #f0fdf4;
+      transform: translateX(4px);
+    }
+    .demo-icon {
+      font-size: 1.75rem;
+    }
+    .demo-info strong {
+      display: block;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+    .demo-info small {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app-nav-header"></div>
+
+  <section class="hero-section">
+    <span class="hero-badge">Smart India Hackathon SIH26132 • Govt. of Maharashtra</span>
+    <h1 class="hero-title">🌾 MandiSetu (मंडीसेतू)</h1>
+    <p class="hero-subtitle">
+      AI-Powered Market Intelligence, Accurate Net-Realization Discovery & Transparent Trading Linkages for Farmers, FPOs and Institutional Buyers across Maharashtra.
+    </p>
+  </section>
+
+  <div class="login-container">
+    <!-- One-Click Demo Logins -->
+    <div class="card" style="box-shadow: var(--shadow-md);">
+      <div class="card-header">
+        <h3 class="card-title">⚡ 1-Click Demo Login</h3>
+        <span class="badge badge-success">Instant Access</span>
+      </div>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">
+        Select any persona to experience role-tailored dashboards and workflows:
+      </p>
+
+      <button class="demo-role-btn" data-email="ramesh@farmer.in" data-role="Farmer">
+        <span class="demo-icon">👨‍🌾</span>
+        <div class="demo-info">
+          <strong>Ramesh Patil (Farmer)</strong>
+          <small>Nashik • Onion Grower • Produce Listing & Net Realization</small>
+        </div>
+      </button>
+
+      <button class="demo-role-btn" data-email="sahyadri@fpo.in" data-role="FPO">
+        <span class="demo-icon">🏢</span>
+        <div class="demo-info">
+          <strong>Sahyadri Kisan Producer Co (FPO)</strong>
+          <small>Pune/Nashik • Aggregation, Member Lots & Bulk Offers</small>
+        </div>
+      </button>
+
+      <button class="demo-role-btn" data-email="sourcing@bigbasket.com" data-role="Buyer">
+        <span class="demo-icon">🛒</span>
+        <div class="demo-info">
+          <strong>BigBasket Sourcing (Buyer)</strong>
+          <small>Verified Buyer • Demand Creation, Offers & Trust Badge</small>
+        </div>
+      </button>
+
+      <button class="demo-role-btn" data-email="admin@mandisetu.gov.in" data-role="Admin">
+        <span class="demo-icon">🏛️</span>
+        <div class="demo-info">
+          <strong>Maharashtra Agri Officer (Admin)</strong>
+          <small>State Policy Analytics, Mandi Disparities & Disputes</small>
+        </div>
+      </button>
+    </div>
+
+    <!-- Manual Login / Register Form -->
+    <div class="card" style="box-shadow: var(--shadow-md);">
+      <div style="display:flex; border-bottom:1px solid var(--border-color); margin-bottom:1rem;">
+        <button id="tab-login" class="btn" style="flex:1; border-radius:0; border-bottom:2px solid var(--primary-color); font-weight:600;">Sign In</button>
+        <button id="tab-register" class="btn" style="flex:1; border-radius:0; color:var(--text-muted);">Register</button>
+      </div>
+
+      <div id="auth-alert" style="display:none;" class="alert"></div>
+
+      <!-- Sign In Form -->
+      <form id="form-login">
+        <div class="form-group">
+          <label class="form-label">Email or Phone</label>
+          <input type="text" id="login-email" class="form-control" placeholder="e.g. ramesh@farmer.in" required value="ramesh@farmer.in">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required value="farmer123">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">
+          Sign In to Portal
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="form-register" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="reg-name" class="form-control" placeholder="e.g. Ramesh Patil" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="reg-email" class="form-control" placeholder="name@domain.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" id="reg-phone" class="form-control" placeholder="+91 9876543210" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Role</label>
+          <select id="reg-role" class="form-control">
+            <option value="Farmer">Farmer (शेतकरी)</option>
+            <option value="FPO">FPO / Cooperative (शेतकरी उत्पादक कंपनी)</option>
+            <option value="Buyer">Institutional Buyer (खरेदीदार)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">District in Maharashtra</label>
+          <select id="reg-district" class="form-control">
+            <option value="Nashik">Nashik</option>
+            <option value="Pune">Pune</option>
+            <option value="Kolhapur">Kolhapur</option>
+            <option value="Solapur">Solapur</option>
+            <option value="Ahmednagar">Ahmednagar</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Mumbai">Mumbai / Thane</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="reg-password" class="form-control" placeholder="At least 6 characters" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">
+          Create Free Account
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>🌾 MandiSetu 2.0 • Smart India Hackathon SIH26132 • Government of Maharashtra</p>
+    <p style="font-size:0.75rem; margin-top:0.25rem; color:#64748b;">
+      Unified Architecture: Single Backend (FastAPI) + Single Frontend Shell + 13 Connected Modules.
+    </p>
+  </footer>
+
+  <script type="module">
+    import { renderNav } from "/js/nav.js";
+    import { initI18n } from "/js/i18n.js";
+    import { saveSession, isAuthenticated } from "/js/auth.js";
+    import { api } from "/js/api.js";
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await initI18n();
+      renderNav();
+
+      // If already logged in, redirect to dashboard
+      if (isAuthenticated()) {
+        window.location.href = "/dashboard";
+        return;
+      }
+
+      const alertBox = document.getElementById("auth-alert");
+      const tabLogin = document.getElementById("tab-login");
+      const tabRegister = document.getElementById("tab-register");
+      const formLogin = document.getElementById("form-login");
+      const formRegister = document.getElementById("form-register");
+
+      tabLogin.addEventListener("click", () => {
+        tabLogin.style.borderBottom = "2px solid var(--primary-color)";
+        tabLogin.style.fontWeight = "600";
+        tabLogin.style.color = "var(--text-main)";
+        tabRegister.style.borderBottom = "none";
+        tabRegister.style.fontWeight = "normal";
+        tabRegister.style.color = "var(--text-muted)";
+        formLogin.style.display = "block";
+        formRegister.style.display = "none";
+      });
+
+      tabRegister.addEventListener("click", () => {
+        tabRegister.style.borderBottom = "2px solid var(--primary-color)";
+        tabRegister.style.fontWeight = "600";
+        tabRegister.style.color = "var(--text-main)";
+        tabLogin.style.borderBottom = "none";
+        tabLogin.style.fontWeight = "normal";
+        tabLogin.style.color = "var(--text-muted)";
+        formRegister.style.display = "block";
+        formLogin.style.display = "none";
+      });
+
+      // Quick Demo Logins
+      document.querySelectorAll(".demo-role-btn").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const email = btn.getAttribute("data-email");
+          const role = btn.getAttribute("data-role");
+          const passwordMap = {
+            "ramesh@farmer.in": "farmer123",
+            "sahyadri@fpo.in": "fpo123",
+            "sourcing@bigbasket.com": "buyer123",
+            "admin@mandisetu.gov.in": "admin123"
+          };
+          const password = passwordMap[email] || "demo123";
+          await executeLogin(email, password);
+        });
+      });
+
+      // Manual Login Handler
+      formLogin.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("login-email").value.trim();
+        const password = document.getElementById("login-password").value;
+        await executeLogin(email, password);
+      });
+
+      // Registration Handler
+      formRegister.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        alertBox.style.display = "none";
+        try {
+          const payload = {
+            full_name: document.getElementById("reg-name").value.trim(),
+            email: document.getElementById("reg-email").value.trim(),
+            phone: document.getElementById("reg-phone").value.trim(),
+            role: document.getElementById("reg-role").value,
+            district: document.getElementById("reg-district").value,
+            state: "Maharashtra",
+            password: document.getElementById("reg-password").value
+          };
+          const res = await api.post("/api/users/register", payload);
+          alertBox.className = "alert alert-success";
+          alertBox.textContent = "Registration successful! You may now sign in.";
+          alertBox.style.display = "block";
+          tabLogin.click();
+        } catch (err) {
+          alertBox.className = "alert alert-danger";
+          alertBox.textContent = err.message || "Registration failed.";
+          alertBox.style.display = "block";
+        }
+      });
+
+      async function executeLogin(email, password) {
+        alertBox.style.display = "none";
+        try {
+          const res = await api.post("/api/users/login", { email, password });
+          saveSession(res.user, {
+            access_token: res.access_token,
+            refresh_token: res.refresh_token
+          });
+          window.location.href = "/dashboard";
+        } catch (err) {
+          alertBox.className = "alert alert-danger";
+          alertBox.textContent = err.message || "Invalid credentials.";
+          alertBox.style.display = "block";
+        }
+      }
+    });
+  </script>
+</body>
+</html>
